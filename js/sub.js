@@ -51,11 +51,23 @@ hash_apply();
 const $list = document.querySelectorAll("header .wrap nav ul li");
 console.log($list);  //NodeList(3) [li, li, li]
 
+// const $body = document.querySelector("body");  //.showMenu
+// const $resBtn = document.querySelector(".resBtn");  //.active
+// const $nav = document.querySelector("header nav");  //.active
+
 for(const v of $list){  //const 예약어를 사용하면 요소의 위치를 고정화시키는 역할을 담당
     console.log(v);
 
     v.addEventListener("click", () => {
         $hash_txt = v.getAttribute("rel");  //기존 해시로부터 받아온 값에서 rel에 담겨진 속성값으로 변경
         hash_apply();
+
+        $body.classList.remove("showMenu");
+        $resBtn.classList.remove("active");
+        $nav.classList.remove("active");
+
+
     });
 }
+
+
